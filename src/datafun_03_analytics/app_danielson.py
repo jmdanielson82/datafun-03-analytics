@@ -1,20 +1,6 @@
-"""app_yourname.py - Project script.
+"""app_danielson.py - Project script.
 
-TODO: Replace "yourname" in the filename with your actual name or alias.
-
-TODO: Read the examples carefully. Choose your data source of one of the provided types.
-TODO: Create and implement a new Python file (module) in this folder following the associated example.
-TODO: Your module should have:
-- an appropriate name like yourname_type_pipeline.py (e.g., smith_csv_pipeline.py)
-- start with a docstring similar to the examples
-- add imports at the top.
-- define an extract function (E that reads data from data/raw into memory)
-- define a transform function (T that processes the extracted data)
-- define a load function (L that writes output to data/processed)
-- define a run_pipeline() function that calls E, T, L, and adds a new output file to data/processed/.
-TODO: Import and call your new module run_pipeline function in this script.
-
-Author: Your Name or Alias
+Author: Jennifer Danielson
 Date: 2026-01
 
 Practice key Python skills:
@@ -35,7 +21,7 @@ OBS:
 # === DECLARE IMPORTS (BRING IN FREE CODE) ===
 
 # Imports from the Python standard library (free stuff that comes with Python).
-import logging
+import logging  # noqa: I001
 from pathlib import Path
 from typing import Final
 
@@ -44,7 +30,8 @@ from datafun_toolkit.logger import get_logger, log_header
 
 # === IMPORT LOCAL MODULE FUNCTIONS ===
 # REQ: imports from other modules in this project must use full package path
-# TODO: create and import your own data pipeline module here. See the example code.
+
+from datafun_03_analytics.danielson_csv_pipeline import run_csv_pipeline
 
 
 # === CONFIGURE LOGGER ONCE PER MODULE ===
@@ -66,7 +53,8 @@ def main() -> None:
     log_header(LOG, "Pipelines: Read, Process, Verify, Write (ETVL)")
     LOG.info("START main()")
 
-    # TODO: call your imported data pipeline that reads from data/raw and writes to data/processed.
+
+    run_csv_pipeline(raw_dir=RAW_DIR, processed_dir=PROCESSED_DIR, logger=LOG)
 
     LOG.info("END main()")
 

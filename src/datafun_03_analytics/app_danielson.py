@@ -40,7 +40,7 @@ LOG: logging.Logger = get_logger("P03", level="DEBUG")
 
 # === DECLARE GLOBAL VARIABLES ===
 
-ROOT_DIR: Final[Path] = Path.cwd()
+ROOT_DIR: Final[Path] = Path.cwd().parent
 DATA_DIR: Final[Path] = ROOT_DIR / "data"
 RAW_DIR: Final[Path] = DATA_DIR / "raw"
 PROCESSED_DIR: Final[Path] = DATA_DIR / "processed"
